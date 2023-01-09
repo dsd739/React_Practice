@@ -1,6 +1,6 @@
 import React from 'react'
-
-export default function Navbar() {
+import PropTypes from 'prop-types'
+export default function Navbar(props) {
   return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
   <div className="container-fluid">
@@ -14,7 +14,7 @@ export default function Navbar() {
           <a className="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="/">Link</a>
+          <a className="nav-link" href={props.link}>{props.web_name}</a>
         </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,4 +40,12 @@ export default function Navbar() {
 </nav>
     
   )
+}
+Navbar.prototype ={
+    link: PropTypes.string.isRequired,
+    web_name: PropTypes.string
+}  
+Navbar.defaultProps={
+    //link:'.com',
+    web_name:'Enter website name'
 }

@@ -4,7 +4,7 @@ import Navbar from './Component/Navbar';
 function App() {
   return (
     <>
-    <Navbar/>
+    <Navbar web_name="CodeChef" link="https://www.codechef.com/"/>
     </>
   );
 }
