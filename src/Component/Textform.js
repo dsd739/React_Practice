@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 
-export default function Textform() {
+export default function Textform(props) {
   const [text, setText] = useState("");
-  const convert_upper = () => {
+  const convert_upper = (e) => {
     setText(text.toUpperCase());
+    props.showAlert("success","converted to uppercase")
   };
   const oonchange = (e) => {
     setText(e.target.value);
   };
   const convert_lower = () => {
     setText(text.toLowerCase());
+    props.showAlert("success","converted to lowercase")
   };
   const copy_to_clipboard = (e) => {
     var copyText = document.getElementById("exampleFormControlTextarea1");
@@ -22,10 +24,11 @@ export default function Textform() {
     navigator.clipboard.writeText(copyText.value);
 
     // Alert the copied text
-    alert("Copied the text: " + copyText.value);
+    props.showAlert("success","Texed copied!!!!")
   };
   const clear_all = () => {
     setText("");
+    props.showAlert("success","All cleared")
   };
 
   return (
